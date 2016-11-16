@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image} from 'react-native';
+import {Image, View, Text} from 'react-native';
 
 class Splash extends Component {
 
@@ -13,14 +13,27 @@ class Splash extends Component {
 
     render() {
         return (
-            <Image style={styles.splash} source={require('./assets/img/logo.png')}/>
+        <View style={styles.content}>
+            <Image style={styles.splash} source={require('./assets/img/logo2.png')}/>
+            <Text style={styles.tituloApp}>AuReal - Recorridos Geolocalizados</Text>
+        </View>
         );
     }
 }
 
 const styles = {
     splash: {
+        justifyContent: 'center',
         alignItems: 'center',
+    },
+    content: {
+        flex:1,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    tituloApp: {
+        fontWeight:'bold',
     }
 };
 

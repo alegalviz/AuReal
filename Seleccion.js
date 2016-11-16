@@ -14,13 +14,13 @@ class Seleccion extends Component {
 
     componentDidMount(){
 
-        let url = 'https://newsapi.org/v1/articles?source=techcrunch&apiKey=e50cce73ffff4ee98a9ef215b0fcd1ed';
+        let url = 'http://perio.unlp.edu.ar/sitios/aureal/api/get_recent_posts/';
 
         fetch(url)
             .then((response) => response.json())
             .then((rjson) => {
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(rjson.articles)
+                    dataSource: this.state.dataSource.cloneWithRows(rjson.posts)
                 })
             })
 
@@ -31,7 +31,7 @@ class Seleccion extends Component {
         return(
             <TouchableHighlight>
                 <View style={styles.article}>
-                    <Image style={styles.articleImage} source={{uri: article.urlToImage}}/>
+                    <Image style={styles.articleImage} source={{uri: article.attachments[0].images.thumbnail.url}}/>
                     <Text style={styles.articleTitle}>{article.title}</Text>
                 </View>
             </TouchableHighlight>
